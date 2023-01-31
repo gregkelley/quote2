@@ -16,7 +16,7 @@ import bodyParser from 'body-parser';
 
 // routes
 import indexRouter from './routes/index.js';
-
+import quoteRouter from './routes/quoteroutes.js';
 
 // https://stackoverflow.com/questions/46745014/alternative-for-dirname-in-node-js-when-using-es6-modules
 import { dirname } from 'path';
@@ -46,7 +46,7 @@ db.once('open', () => console.log('connected to db'));
 
 //routes
 app.use('/', indexRouter);
-// app.use('/authors', authorRouter);
+app.use('/quotes', quoteRouter);
 
 
-app.listen(process.env.PORT || 3000, () => console.log('Server Started'));
+app.listen(process.env.PORT || 3002, () => console.log('Server Started'));

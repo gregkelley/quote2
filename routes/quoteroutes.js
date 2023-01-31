@@ -1,5 +1,5 @@
 import express from 'express';
-// import Author from '../models/author.js';
+import Quote from '../models/quote.js';
 
 const router = express.Router();
 
@@ -7,44 +7,48 @@ const router = express.Router();
 router.get('/', async (req, res) => {
   // set up search options
   let searchOptions = {};
-  if (req.query.name != null && req.query.name !== '') {
-    searchOptions.name = new RegExp(req.query.name, 'i');
-  }
-  // try {
-  //   // find({where conditions here}) see mongoose docs
-  //   const authors = await Author.find(searchOptions); // get all
-  //   res.render('authors/index', { 
-  //     authors: authors, 
-  //     searchOptions: req.query 
-  //   });
-  // } catch {
-  //   res.redirect('/');
+  // if (req.query.name != null && req.query.name !== '') {
+  //   searchOptions.name = new RegExp(req.query.name, 'i');
   // }
+  try {
+    // find({where conditions here}) see mongoose docs
+    const quotes = await Quote.find(searchOptions); // get all
+    res.render('quotes/index', { 
+      quotes: quotes, 
+      // searchOptions: req.query 
+    });
+  } catch {
+    res.redirect('/');
+  }
 
   // temporary
-  res.send('Hello muh Bitches');
+  // res.send('Hello muh Bitches');
 });
 
-// get new authors
-// router.get('/new', (req, res) => {
-//   res.render('authors/new', { author: new Author() });
-// });
+// get new quotes
+router.get('/new', (req, res) => {
+  res.render('quotes/new', { quote: new Quote() });
+});
 
-// create authors
-// router.post('/', async (req, res) => {
-//   const author = new Author({
-//     name: req.body.name,
-//   });
+// create a new quote
+router.post('/', async (req, res) => {
+  // res.send('Create a quote you did');
+  // res.send(`${req.body.contributor} created  ${req.body.quote}`);
+  const quote = new Quote({
+    quote: req.body.quote,
+    name: req.body.contributor,
+  });
 
-//   try {
-//     const newAuthor = await author.save();
-//     // res.redirect(`authors/${newAuthor.id}`)
-//       res.redirect(`authors`);
-//   } catch {
-//     res.render('authors/new', {
-//       author: author,
-//       errorMessage: 'Error creating author',
-//     });
-//   }
-// });
+  try {
+    const newQuote = await quote.save();
+    // res.redirect(`quotes/${newQuote.id}`)
+      res.redirect(`quotes`);
+  } catch {
+    res.render('quotes/new', {
+      quote: quote,
+      errorMessage: 'Error creating quote',
+    });
+  }
+});
+
 export default router;

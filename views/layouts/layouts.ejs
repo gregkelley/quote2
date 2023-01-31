@@ -4,6 +4,28 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- FilePond - see notes.txt for info -->
+  <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">
+
+  <!-- don't know if I need this or not.. plugins get registered in fileUploads.js -->
+  <script defer src="https://unpkg.com/filepond-plugin-file-encode/dist/filepond-plugin-file-encode.js"></script>
+  <!-- for quotes we don't need encoding for picture files. -->
+  <!--
+  <link
+    href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css"
+    rel="stylesheet"
+  />
+
+  <script defer src="https://unpkg.com/filepond-plugin-file-encode/dist/filepond-plugin-file-encode.js"></script>
+  <script defer src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
+  <script defer src="https://unpkg.com/filepond-plugin-image-resize/dist/filepond-plugin-image-resize.js"></script> -->
+  <!-- filepond.js comes after the plugins -->
+  <script defer src="https://unpkg.com/filepond/dist/filepond.js"></script>
+  <!-- create our own script that allows us to use filepond -->
+  <script defer src="/javascript/fileUpload.js"></script>
+  <!-- end FilePond include section -->
+
   <title>Quotes 2</title>
 </head>
 <body>
