@@ -7,6 +7,10 @@ const quoteSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  attribution: {  // originator of quote (name)
+    type: String,
+    required: false
+  },
   name: {  // the person submitting quote
     type: String,
     required: false

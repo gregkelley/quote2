@@ -26,13 +26,19 @@
   <script defer src="/javascript/fileUpload.js"></script>
   <!-- end FilePond include section -->
 
-  <title>Quotes 2</title>
+  <link rel="stylesheet" type="text/css" href="/stylesheets/main.css" />
+
+  <title>QuoteGak</title>
 </head>
 <body>
   <br>
+  <div class="container">
   <%- include('../partials/header.ejs') %>
-  <%- include('../partials/errorMessage.ejs') %>
-  <%- body %>
-  <br>
+  <div class="inner-container">
+    <%- include('../partials/errorMessage.ejs') %>
+    <%- body %>
+  </div>
+</div>
+<br>
 </body>
 </html>

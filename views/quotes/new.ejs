@@ -1,9 +1,10 @@
-<h2>New Quote</h2>
+<h2>Add a Quote</h2>
 <form action="/quotes" method="POST">
   <!-- inputs -->
   <%- include('_form_fields') %>
 
+  <button class="btn btn-primary" type="submit">Create</button>
+
   <!-- cancel -->
-  <a href="/quotes">Cancel</a>
-  <button type="submit">Create</button>
+  <a class="btn btn-danger" href="/quotes">Cancel</a>
 </form>
